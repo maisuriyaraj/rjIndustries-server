@@ -1,4 +1,5 @@
-require("./config")
+require("./config");
+require("./config/firebase.config")
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -45,7 +46,8 @@ var serviceAccount = require("./rjprojectsSetup.json");
 
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket:"gs://rjprojects-a3428.appspot.com"
 });
 
 module.exports = app;
